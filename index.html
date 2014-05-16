@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Startup-startup by dev-confidence</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Startup-startup</h1>
+          <h2>StartUp a StartUp with a working example Continuous Integration &amp; Delivery pipeline</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/dev-confidence/startup-startup/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/dev-confidence/startup-startup/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/dev-confidence/startup-startup" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p><a href="https://travis-ci.org/dev-confidence/startup-startup"><img src="https://travis-ci.org/dev-confidence/startup-startup.svg?branch=master" alt="Build Status"></a></p>
+
+<hr><h1>
+<a name="startup-startup" class="anchor" href="#startup-startup"><span class="octicon octicon-link"></span></a>StartUp-StartUp</h1>
+
+<p>The aim of this project is to <strong>StartUp</strong> a <strong>StartUp</strong> with a working example <code>Continuous Integration &amp; Delivery</code> pipeline.</p>
+
+<hr><h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<h3>
+<a name="environment" class="anchor" href="#environment"><span class="octicon octicon-link"></span></a>Environment</h3>
+
+<ul>
+<li>Vagrant</li>
+<li>SaltStack</li>
+</ul><h3>
+<a name="automated-testing--deployment" class="anchor" href="#automated-testing--deployment"><span class="octicon octicon-link"></span></a>Automated testing &amp; deployment</h3>
+
+<ul>
+<li>Codeception - testing framework
+
+<ul>
+<li>[ ] Unit tests</li>
+<li>[ ] Functional tests</li>
+<li>[x] Acceptance tests</li>
+</ul>
+</li>
+<li>TravisCI - contiuous integration
+
+<ul>
+<li>[ ] Unit tests</li>
+<li>[ ] Functional tests</li>
+<li>[ ] Acceptance tests</li>
+<li>[x] Continuous Tag (tag on successful build)</li>
+<li>[ ] Continuous delivery (deploy on successful build)</li>
+</ul>
+</li>
+<li>Coveralls - code coverage</li>
+<li>EagleEye - dependency version</li>
+<li>Scrutinizer - static code analysis</li>
+<li>Deploy VM
+
+<ul>
+<li>[ ] Amazon</li>
+</ul>
+</li>
+</ul><hr><h2>
+<a name="running-application-from-scratch" class="anchor" href="#running-application-from-scratch"><span class="octicon octicon-link"></span></a>Running Application from Scratch</h2>
+
+<h3>
+<a name="1-building-development-environment-with-vagrant--saltstack" class="anchor" href="#1-building-development-environment-with-vagrant--saltstack"><span class="octicon octicon-link"></span></a>1. Building Development Environment with Vagrant &amp; SaltStack</h3>
+
+<p>1a. Build VM</p>
+
+<pre><code>vagrant up
+</code></pre>
+
+<p>This will take about 15mins depending on your internet connection.</p>
+
+<p>It will install everything you need:</p>
+
+<ul>
+<li>Ubuntu 12.04LTS (Linux)</li>
+<li>PHP 5.5</li>
+<li>Apache 2.4 with virtual host (vhost) for this project</li>
+<li>Git</li>
+<li>A few little extra tools (check salt/roots/salt for more details)</li>
+</ul><hr><h3>
+<a name="2-running-test-suite" class="anchor" href="#2-running-test-suite"><span class="octicon octicon-link"></span></a>2. Running test suite</h3>
+
+<p>Build development environment from section above in 1 step with vagrant.</p>
+
+<p>2a. Download dependencies using <code>Composer</code></p>
+
+<pre><code>php composer.phar install
+</code></pre>
+
+<p>2b. Run test suite</p>
+
+<pre><code>vendor/bin/codecept run
+</code></pre>
+
+<p>Example output</p>
+
+<pre><code>vagrant@precise64:/var/www/dev-confidence/startup-startup$ vendor/bin/codecept run
+Codeception PHP Testing Framework v1.8.5
+Powered by PHPUnit 3.7.37 by Sebastian Bergmann.
+
+Acceptance Tests (3) ------------------------------------------------
+Trying to ensure that homepage works (HomepageCept.php)         Ok
+Trying to sign in (LoginCept.php)                               Ok
+Trying to ensure that user list page works (UserCept.php)       Ok
+---------------------------------------------------------------------
+
+Functional Tests (0) ------------------------
+---------------------------------------------
+
+Unit Tests (0) ------------------------------
+---------------------------------------------
+
+
+Time: 285 ms, Memory: 9.50Mb
+
+OK (3 tests, 7 assertions)
+</code></pre>
+
+<h3>
+<a name="3viewing-application" class="anchor" href="#3viewing-application"><span class="octicon octicon-link"></span></a>3.Viewing Application</h3>
+
+<p>3a. Got to url <code>http://localhost:8080</code></p>
+        </section>
+
+        <footer>
+          Startup-startup is maintained by <a href="https://github.com/dev-confidence">dev-confidence</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
